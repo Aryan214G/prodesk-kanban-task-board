@@ -1,16 +1,31 @@
-function Column({title, tasks}) {
+function Column({title, tasks, moveTask}) {
 
     return(
-        <div>
+        <div className="column">
 
             <h2>{title}</h2>
 
             {
                 tasks.map(task => (
 
-                    <p key={task.id}>
-                        {task.text}
-                    </p>
+                    <div
+                    key={task.id}
+                    className="task-card"
+                    >
+                        <p>{task.text}</p>
+
+                        <button
+                        onClick={() =>
+                            moveTask(
+                                task.id,
+                                "inprogress"
+                            )
+                        }>
+                            Move Right
+
+                        </button>
+
+                    </div>
                 ))
             }
         </div>

@@ -1,0 +1,13 @@
+.board {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.column {
+    flex: 1;
+    background: rgb(41, 59, 90);
+    border-radius: 12px;
+    padding: 16px;
+    min-height: 300px;
+}
