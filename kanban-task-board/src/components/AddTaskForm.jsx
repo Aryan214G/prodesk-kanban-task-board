@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-function AddTaskForm() {
+function AddTaskForm({
+    tasks,
+    setTasks
+}) {
 
     const [taskText, setTaskText] = useState("");
-
-    const [tasks, setTasks] = useState([]);
 
     function addTask() {
 
