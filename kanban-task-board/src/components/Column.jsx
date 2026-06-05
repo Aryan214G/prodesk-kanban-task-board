@@ -1,6 +1,10 @@
-function Column({title, tasks, moveTask}) {
+function Column({
+    title,
+    tasks,
+    moveTask
+}) {
 
-    return(
+    return (
         <div className="column">
 
             <h2>{title}</h2>
@@ -9,29 +13,77 @@ function Column({title, tasks, moveTask}) {
                 tasks.map(task => (
 
                     <div
-                    key={task.id}
-                    className="task-card"
+                        key={task.id}
+                        className="task-card"
                     >
+
                         <p>{task.text}</p>
 
-                        <button
-                        onClick={() =>
-                            moveTask(
-                                task.id,
-                                "inprogress"
-                            )
-                        }>
-                            Move Right
+                        {title === "To Do" && (
 
-                        </button>
+                            <button
+                                onClick={() =>
+                                    moveTask(
+                                        task.id,
+                                        "inprogress"
+                                    )
+                                }
+                            >
+                                Move Right
+                            </button>
+
+                        )}
+
+                        {title === "In Progress" && (
+
+                            <>
+                                <button
+                                    onClick={() =>
+                                        moveTask(
+                                            task.id,
+                                            "todo"
+                                        )
+                                    }
+                                >
+                                    Move Left
+                                </button>
+
+                                <button
+                                    onClick={() =>
+                                        moveTask(
+                                            task.id,
+                                            "done"
+                                        )
+                                    }
+                                >
+                                    Move Right
+                                </button>
+                            </>
+
+                        )}
+
+                        {title === "Done" && (
+
+                            <button
+                                onClick={() =>
+                                    moveTask(
+                                        task.id,
+                                        "inprogress"
+                                    )
+                                }
+                            >
+                                Move Left
+                            </button>
+
+                        )}
 
                     </div>
+
                 ))
             }
+
         </div>
     );
-    
 }
-
 
 export default Column;
