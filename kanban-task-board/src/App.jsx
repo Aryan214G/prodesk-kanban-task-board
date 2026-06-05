@@ -1,7 +1,12 @@
+import AddTaskForm from "./components/AddTaskForm";
+
 function App() {
 
     return (
-        <h1>Kanban Task Board</h1>
+        <div>
+            <h1>Kanban Task Board</h1>
+            <AddTaskForm />
+        </div>
     );
 }
 
