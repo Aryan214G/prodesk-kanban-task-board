@@ -33,6 +33,15 @@ function App() {
       
     }
 
+    function deleteTask(id) {
+
+    setTasks(
+        tasks.filter(
+            task => task.id !== id
+        )
+    );
+}
+
     return (
         <div>
 
@@ -50,18 +59,21 @@ function App() {
                         title="To Do"
                         tasks={todoTasks}
                         moveTask={moveTask}
+                        deleteTask={deleteTask}
                         />
 
                         <Column
                         title="In Progress"
                         tasks = {inProgressTasks}
                         moveTask={moveTask}
+                        deleteTask={deleteTask}
                         />
 
                         <Column
                         title= "Done"
                         tasks={doneTasks}
                         moveTask={moveTask}
+                        deleteTask={deleteTask}
                         />
             </div>
 

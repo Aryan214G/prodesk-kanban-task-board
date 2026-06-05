@@ -1,7 +1,8 @@
 function Column({
     title,
     tasks,
-    moveTask
+    moveTask,
+    deleteTask
 }) {
 
     return (
@@ -19,63 +20,75 @@ function Column({
 
                         <p>{task.text}</p>
 
-                        {title === "To Do" && (
+                        <div className="task-actions">
 
-                            <button
-                                onClick={() =>
-                                    moveTask(
-                                        task.id,
-                                        "inprogress"
-                                    )
-                                }
-                            >
-                                Move Right
-                            </button>
+                            {title === "To Do" && (
 
-                        )}
-
-                        {title === "In Progress" && (
-
-                            <>
                                 <button
                                     onClick={() =>
                                         moveTask(
                                             task.id,
-                                            "todo"
+                                            "inprogress"
+                                        )
+                                    }
+                                >
+                                    Move Right
+                                </button>
+
+                            )}
+
+                            {title === "In Progress" && (
+
+                                <>
+                                    <button
+                                        onClick={() =>
+                                            moveTask(
+                                                task.id,
+                                                "todo"
+                                            )
+                                        }
+                                    >
+                                        Move Left
+                                    </button>
+
+                                    <button
+                                        onClick={() =>
+                                            moveTask(
+                                                task.id,
+                                                "done"
+                                            )
+                                        }
+                                    >
+                                        Move Right
+                                    </button>
+                                </>
+
+                            )}
+
+                            {title === "Done" && (
+
+                                <button
+                                    onClick={() =>
+                                        moveTask(
+                                            task.id,
+                                            "inprogress"
                                         )
                                     }
                                 >
                                     Move Left
                                 </button>
 
-                                <button
-                                    onClick={() =>
-                                        moveTask(
-                                            task.id,
-                                            "done"
-                                        )
-                                    }
-                                >
-                                    Move Right
-                                </button>
-                            </>
-
-                        )}
-
-                        {title === "Done" && (
+                            )}
 
                             <button
                                 onClick={() =>
-                                    moveTask(
-                                        task.id,
-                                        "inprogress"
-                                    )
+                                    deleteTask(task.id)
                                 }
                             >
-                                Move Left
+                                Delete
                             </button>
 
-                        )}
+                        </div>
 
                     </div>
 
