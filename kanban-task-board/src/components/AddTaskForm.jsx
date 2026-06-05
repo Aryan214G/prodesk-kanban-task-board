@@ -15,7 +15,11 @@ function AddTaskForm({
 
         setTasks([
             ...tasks,
-            taskText
+            {
+                id: Date.now(),
+                text: taskText,
+                status: "todo"
+            }
         ]);
 
         setTaskText("");
@@ -39,8 +43,8 @@ function AddTaskForm({
 
             {
                 tasks.map(task => (
-                    <p key={task}>
-                        {task}
+                    <p key={task.id}>
+                        {task.text}
                     </p>
                 ))
             }
