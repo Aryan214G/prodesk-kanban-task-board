@@ -26,7 +26,7 @@ function AddTaskForm({
     }
 
     return (
-        <div>
+        <div className="task-form">
 
             <input
                 type="text"

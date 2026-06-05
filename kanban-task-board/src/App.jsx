@@ -43,7 +43,7 @@ function App() {
 }
 
     return (
-        <div>
+        <div className="app">
 
             <h1>Kanban Task Board</h1>
 
